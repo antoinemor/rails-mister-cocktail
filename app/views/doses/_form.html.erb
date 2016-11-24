@@ -1,5 +1,5 @@
 <%= simple_form_for [@cocktail, @dose], url: cocktail_doses_path do |f| %>
-  <%= f.input :description %>
   <%= f.input :ingredient, collection: @ingredients %>
+  <%= f.input :description %>
   <%= f.button :submit, class: "btn btn-default btn-block text-center" %>
 <% end %>
