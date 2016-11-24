@@ -1,3 +1,16 @@
 <h1><%= @cocktail.name %></h1>
 
-<%= link_to "Home", cocktails_path %>
+<h3>Composition</h3>
+
+<% if @cocktail.doses.length == 0 %>
+  <p>No doses yet</p>
+<% else %>
+  <ul>
+  <% @cocktail.doses.each do |dose| %>
+    <li><%= dose.ingredient.name %>: <%= dose.description %> [<%= link_to "Delete", cocktail_dose_path(dose),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>]</li>
+  <% end %>
+  </ul>
+<% end %>
+[<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail)%> | <%= link_to "Home", cocktails_path %>]
