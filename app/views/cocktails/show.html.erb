@@ -1,16 +1,31 @@
-<h1><%= @cocktail.name %></h1>
+<div class="image-header text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= 'https://unsplash.it/1200?image=' + (@cocktail.id * 10).to_s%>)">
+  <h1><%= @cocktail.name.upcase %></h1>
+</div>
 
-<h3>Composition</h3>
-
+<h3 class="text-center">Composition</h3>
 <% if @cocktail.doses.length == 0 %>
-  <p>No doses yet</p>
+  <h4 class="text-center">No doses yet :-(</h4>
 <% else %>
-  <ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.ingredient.name %>: <%= dose.description %> [<%= link_to "Delete", cocktail_dose_path(@cocktail, dose),
+  <div class="cards-wrapper">
+    <div class="container">
+      <div class="row">
+        <% @cocktail.doses.each do |dose| %>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url(<%= 'http://www.thecocktaildb.com/images/ingredients/' + dose.ingredient.name.gsub(' ', '%20') + '.png'%>);">
+              <div class="card-delete"><%= link_to '<i class="fa fa-times"></i>'.html_safe, cocktail_dose_path(@cocktail, dose),
           method: :delete,
-          data: { confirm: "Are you sure?" } %>]</li>
-  <% end %>
-  </ul>
+          data: { confirm: "Are you sure?" } %></div>
+              <div class="card-title text-center"><%= dose.ingredient.name.upcase %></div>
+              <div class="card-description text-center"><%= dose.description %></div>
+              <div class="card-link"></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% end %>
-[<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail)%> | <%= link_to "Home", cocktails_path %>]
+<div class="text-center">
+  <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: 'btn btn-danger btn-lg btn-purple'%>
+</div>
+
