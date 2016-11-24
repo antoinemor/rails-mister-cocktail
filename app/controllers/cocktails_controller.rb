@@ -2,6 +2,7 @@ class CocktailsController < ApplicationController
   before_action :find_cocktail, only: [:show, :new, :create]
 
   def index
+    @cocktails = Cocktail.all
   end
 
   def show
