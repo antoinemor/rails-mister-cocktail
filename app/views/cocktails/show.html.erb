@@ -1,4 +1,4 @@
-<div class="image-header text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= 'https://unsplash.it/1200?image=' + (@cocktail.id * 10).to_s%>)">
+<div class="image-header text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @cocktail.photo %>)">
   <h1><%= @cocktail.name.upcase %></h1>
 </div>
 
