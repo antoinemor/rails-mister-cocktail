@@ -30,6 +30,7 @@ gem "bootstrap-sass"
 gem "simple_form"
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
+gem 'figaro'
 
 
 # Use Capistrano for deployment
