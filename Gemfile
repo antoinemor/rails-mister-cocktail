@@ -32,6 +32,8 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'figaro'
 gem 'cloudinary', '1.1.0'
+gem 'carrierwave'
+
 
 
 # Use Capistrano for deployment
