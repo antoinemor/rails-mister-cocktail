@@ -14,6 +14,18 @@
 @import "pages/index";
 @import "vendor/index";
 
+html,
 body {
+  margin:0;
+  padding:0;
+  height:100%;
   background-color: #ECECEC;
+}
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+
+#content {
+  padding-bottom: 120px;
 }
